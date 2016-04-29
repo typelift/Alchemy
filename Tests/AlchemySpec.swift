@@ -64,6 +64,14 @@ class AlchemySpec : XCTestCase {
 			return roundTripWith(x)
 		}
 		
+		property("round trip") <- forAll { (x : Float) in
+			return roundTripWith(x)
+		}
+		
+		property("round trip") <- forAll { (x : Double) in
+			return roundTripWith(x)
+		}
+		
 //		let arg = CheckerArguments(replay: (StdGen(11130740, 1029952160), 0))
 //		property("round trip", arguments: arg) <- forAll { (x : String) in
 //			return x ==== runGet(String.deserialize(), x.serialize.run())

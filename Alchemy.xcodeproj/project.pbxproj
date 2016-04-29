@@ -953,6 +953,7 @@
 				82373A281CD405DB00CBAF3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82373A291CD405DB00CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -961,6 +962,7 @@
 				82373A2B1CD405DB00CBAF3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82373A421CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOS" */ = {
 			isa = XCConfigurationList;
@@ -969,6 +971,7 @@
 				82373A441CD405F500CBAF3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82373A451CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOSTests" */ = {
 			isa = XCConfigurationList;
@@ -977,6 +980,7 @@
 				82373A471CD405F500CBAF3C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		82573C111BDAA62700549861 /* Build configuration list for PBXProject "Alchemy" */ = {
 			isa = XCConfigurationList;

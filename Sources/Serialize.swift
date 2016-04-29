@@ -198,6 +198,26 @@ extension UInt : Serializable {
 	}
 }
 
+extension Float : Serializable {
+	public static func deserialize<R>() -> Get<Float, R> {
+		return UInt32.deserialize().map { unsafeBitCast($0, Float.self) }
+	}
+	
+	public var serialize : Put {
+		return unsafeBitCast(self, UInt32.self).serialize
+	}
+}
+
+extension Double : Serializable {
+	public static func deserialize<R>() -> Get<Double, R> {
+		return UInt64.deserialize().map { unsafeBitCast($0, Double.self) }
+	}
+	
+	public var serialize : Put {
+		return unsafeBitCast(self, UInt64.self).serialize
+	}
+}
+
 extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
 		return Int.deserialize().flatMap { n in

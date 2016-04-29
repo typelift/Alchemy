@@ -8,24 +8,6 @@
 
 public typealias ByteString = [UInt8]
 
-indirect enum DecodeResult<A> {
-	case Fail(ByteString, String)
-	case Done(ByteString, A)
-}
-
-internal enum Success<A, R> {
-	typealias T = (ByteString, A) -> DecodeResult<R>
-}
-
-internal indirect enum Either<L, R> {
-	case Left(L)
-	case Right(R)
-}
-
-internal enum Consume<S> {
-	typealias T = (S, ByteString) -> Either<S, (ByteString, ByteString)>
-}
-
 public struct Get<A, R> {
 	private let runCont : (ByteString, Success<A, R>.T) -> DecodeResult<R>
 
@@ -133,6 +115,24 @@ func ensureN<R>(n : Int) -> Get<(), R> {
 			}).flatMap(put).runCont(inp, ks)
 		}
 	}
+}
+
+indirect enum DecodeResult<A> {
+	case Fail(ByteString, String)
+	case Done(ByteString, A)
+}
+
+internal enum Success<A, R> {
+	typealias T = (ByteString, A) -> DecodeResult<R>
+}
+
+internal indirect enum Either<L, R> {
+	case Left(L)
+	case Right(R)
+}
+
+internal enum Consume<S> {
+	typealias T = (S, ByteString) -> Either<S, (ByteString, ByteString)>
 }
 
 //public func getWord16le<R>() -> Get<UInt16, R> {
