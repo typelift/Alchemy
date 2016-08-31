@@ -10,7 +10,7 @@ import Alchemy
 import SwiftCheck
 import XCTest
 
-func roundTripWith<A : protocol<Equatable, Serializable>>(x : A) -> Property {
+func roundTripWith<A : Equatable & Serializable>(_ x : A) -> Property {
 	return x ==== runGet(A.deserialize(), x.serialize.run())
 }
 

@@ -9,37 +9,37 @@
 public typealias Put = PutM<()>
 
 extension PutM /*: Functor*/ {
-	public func map<B>(f : A -> B) -> PutM<B> {
+	public func map<B>(_ f : (A) -> B) -> PutM<B> {
 		let pp = self.unPut
-		return PutM<B>(unPut: PairS(fst: f(pp.fst), snd: pp.snd))
+		return PutM<B>(unPut: (f(pp.0), pp.1))
 	}
 }
 
 extension PutM /*: Applicative*/ {
-	public static func pure(x : A) -> PutM<A> {
-		return PutM(unPut: PairS(fst: x, snd: Builder.empty()))
+	public static func pure(_ x : A) -> PutM<A> {
+		return PutM(unPut: (x, Builder.empty()))
 	}
 
-	public func ap<B>(m : PutM<A -> B>) -> PutM<B> {
+	public func ap<B>(_ m : PutM<(A) -> B>) -> PutM<B> {
 		let pp = m.unPut
 		let xx = self.unPut
-		return PutM<B>(unPut: PairS(fst: pp.fst(xx.fst), snd: pp.snd.append(xx.snd)))
+		return PutM<B>(unPut: (pp.0(xx.0), pp.1.append(xx.1)))
 	}
 }
 
 extension PutM /*: Monad*/ {
-	public func flatMap<B>(k : A -> PutM<B>) -> PutM<B> {
+	public func flatMap<B>(_ k : (A) -> PutM<B>) -> PutM<B> {
 		let pp = self.unPut
-		let xx = k(pp.fst).unPut
-		return PutM<B>(unPut: PairS(fst: xx.fst, snd: pp.snd.append(xx.snd)))
+		let xx = k(pp.0).unPut
+		return PutM<B>(unPut: (xx.0, pp.1.append(xx.1)))
 	}
 	
-	public func then<B>(r : PutM<B>) -> PutM<B> {
+	public func then<B>(_ r : PutM<B>) -> PutM<B> {
 		return self >>> r
 	}
 }
 
-public func >>- <A, B>(m : PutM<A>, fn : A -> PutM<B>) -> PutM<B> {
+public func >>- <A, B>(m : PutM<A>, fn : (A) -> PutM<B>) -> PutM<B> {
 	return m.flatMap(fn)
 }
 
@@ -48,6 +48,7 @@ public func >>> <A, B>(l : PutM<A>, r : PutM<B>) -> PutM<B> {
 		return r
 	}
 }
+
 
 //public func putByteString(s : ByteString) -> Put {
 //	return Put.tell(Builder.fromByteString(s))
@@ -61,31 +62,26 @@ public func >>> <A, B>(l : PutM<A>, r : PutM<B>) -> PutM<B> {
 //	return Put.tell(Builder.putWord32le(x))
 //}
 
-private struct PairS<A> {
-	let fst : A
-	let snd : Builder
-}
-
 public struct PutM<A> {
-	private let unPut : PairS<A>
+	fileprivate let unPut : (A, Builder)
 	
 	func exec() -> Builder {
-		return self.unPut.snd
+		return self.unPut.1
 	}
 	
 	public func run() -> ByteString {
-		return self.unPut.snd.forceByteString
+		return self.unPut.1.forceByteString
 	}
 	
-	public static func byWritingBytes(n : Int, _ f : UnsafeMutablePointer<UInt8> -> ()) -> Put {
+	public static func byWritingBytes(_ n : Int, _ f : @escaping (UnsafeMutablePointer<UInt8>) -> ()) -> Put {
 		return tell(Builder.writeAtMost(n, f: { p in f(p); return n }))
 	}
 	
-	public func putByteString(s : ByteString) -> Put {
+	public func putByteString(_ s : ByteString) -> Put {
 		return self.flatMap { _ in Put.tell(Builder.fromByteString(s)) }
 	}
 	
-	private static func tell(b : Builder) -> Put {
-		return Put(unPut: PairS(fst: (), snd: b))
+	fileprivate static func tell(_ b : Builder) -> Put {
+		return Put(unPut: ((), b))
 	}
 }
