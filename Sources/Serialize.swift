@@ -111,7 +111,7 @@ extension UInt8 : Serializable {
 
 	public var serialize : Put {
 		return Put.byWritingBytes(1) { buf in
-			buf.memory = self
+			buf.pointee = self
 		}
 	}
 }
@@ -200,21 +200,21 @@ extension UInt : Serializable {
 
 extension Float : Serializable {
 	public static func deserialize<R>() -> Get<Float, R> {
-		return UInt32.deserialize().map { unsafeBitCast($0, Float.self) }
+		return UInt32.deserialize().map { unsafeBitCast($0, to: Float.self) }
 	}
 	
 	public var serialize : Put {
-		return unsafeBitCast(self, UInt32.self).serialize
+		return unsafeBitCast(self, to: UInt32.self).serialize
 	}
 }
 
 extension Double : Serializable {
 	public static func deserialize<R>() -> Get<Double, R> {
-		return UInt64.deserialize().map { unsafeBitCast($0, Double.self) }
+		return UInt64.deserialize().map { unsafeBitCast($0, to: Double.self) }
 	}
 	
 	public var serialize : Put {
-		return unsafeBitCast(self, UInt64.self).serialize
+		return unsafeBitCast(self, to: UInt64.self).serialize
 	}
 }
 
@@ -222,13 +222,13 @@ extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
 		return Int.deserialize().flatMap { n in
 			return Get.byReadingBytes(n) { s in
-				return String.fromCString(s.map { Int8(bitPattern: $0) }) ?? ""
+				return String(cString: s.map { Int8(bitPattern: $0) })
 			} 
 		}
 	}
 	
 	public var serialize : Put {
 		return self.utf8.count.serialize 
-			.putByteString(ByteString(self.nulTerminatedUTF8))
+			.putByteString(ByteString(self.utf8))
 	}
 }
