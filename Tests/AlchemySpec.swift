@@ -73,7 +73,7 @@ class AlchemySpec : XCTestCase {
 		}
 		
 		property("round trip") <- forAll { (x : String) in
-			return x ==== runGet(String.deserialize(), x.serialize.run())
+			return roundTripWith(x)
 		}
 
 		property("round trip") <- forAll { (x : Foo) in
