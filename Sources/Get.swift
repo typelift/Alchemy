@@ -8,9 +8,13 @@
 
 public typealias ByteString = [UInt8]
 
+/// `Get` contains a lazy function that carries the information needed to
+/// deserialize a byte string into either value or an error.
 public struct Get<A, R> {
 	fileprivate let runCont : (ByteString, Success<A, R>.T) -> DecodeResult<R>
 
+	/// Creates a `Get`ter that reads a given number of a bytes from the byte
+	/// string buffer to construct a value.
 	public static func byReadingBytes(_ n : Int, _ f : @escaping (ByteString) -> A) -> Get<A, R> {
 		if n == 0 {
 			return Get.pure(f([]))
@@ -21,12 +25,15 @@ public struct Get<A, R> {
 			}
 		}
 	}
-	
+
+	/// Extends a `Get`ter to read additional data from a byte string buffer to
+	/// construct a value.
 	public func byReadingBytes(_ n : Int, _ f : @escaping (ByteString) -> A) -> Get<A, R> {
 		return self.flatMap { _ in Get.byReadingBytes(n, f) }
 	}
 }
 
+/// Executes the function contained in the `Get`ter to deserialize a value.
 public func runGet<A>(_ g : Get<A, A>, _ lbs0 : ByteString) -> A  {
 	switch g.runCont(lbs0, { i, a in DecodeResult<A>.done(i, a) }) {
 	case let .done(_, x):
@@ -37,6 +44,7 @@ public func runGet<A>(_ g : Get<A, A>, _ lbs0 : ByteString) -> A  {
 }
 
 extension Get /*: Functor*/ {
+	/// Applies a function to the result of deserializing a value.
 	func map<B>(_ f : @escaping (A) -> B) -> Get<B, R> {
 		return Get<B, R> { (i, ks) in
 			return self.runCont(i) { (i2, a) in
@@ -51,6 +59,7 @@ public func <^> <A, B, R>(f : @escaping (A) -> B, g : Get<A, R>) -> Get<B, R> {
 }
 
 extension Get /*: Applicative*/ {
+	/// Constructs a `Get`ter that reads no bytes and returns a value.
 	static func pure(_ x : A) -> Get<A, R> {
 		return Get { (s, ks) in
 			return ks(s, x)
@@ -58,33 +67,34 @@ extension Get /*: Applicative*/ {
 	}
 
 	public func ap<B>(_ fn : Get<(A) -> B, R>) -> Get<B, R> {
-		return fn <*> self
+		return fn.flatMap { b in
+			return self.flatMap { a in
+				return Get<B, R>.pure(b(a))
+			}
+		}
 	}
 }
 
 public func <*> <A, B, R>(d : Get<(A) -> B, R>, e : Get<A, R>) -> Get<B, R> {
-	return d.flatMap { b in
-		return e.flatMap { a in
-			return Get.pure(b(a))
-		}
-	}
+	return e.ap(d)
 }
 
 extension Get /*: Monad*/ {
-	public func flatMap<B>(_ f : @escaping (A) -> Get<B, R>) -> Get<B, R> {
-		return self >>- f
+	/// Applies a function to continue deserializing values from a buffer.
+	public func flatMap<B>(_ fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
+		return Get<B, R> { i, ks in
+			return self.runCont(i) { i2, a in
+				return fn(a).runCont(i2, ks)
+			}
+		}
 	}
 }
 
 public func >>- <A, B, R>(m : Get<A, R>, fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
-	return Get<B, R> { i, ks in
-		return m.runCont(i) { i2, a in
-			return fn(a).runCont(i2, ks)
-		}
-	}
+	return m.flatMap(fn)
 }
 
-func ensureN<R>(_ n : Int) -> Get<(), R> {
+private func ensureN<R>(_ n : Int) -> Get<(), R> {
 	func put(_ s : ByteString) -> Get<(), R> {
 		return Get { inp, ks in
 			return ks(s, ())

@@ -6,10 +6,23 @@
 //  Copyright © 2016 TypeLift. All rights reserved.
 //
 
+/// This protocol provides the `serialize` and `deserialize` methods to encode
+/// and decode a Swift value to a lazy string of bytes.  It functions much like
+/// the `ExpressibleByStringLiteral` and `CustomStringConvertible` protocols for
+/// textual representation of Swift types.  But because the format is binary, it
+/// is suitable for writing to disk, sending over the network, etc.
 ///
+/// This library is suitable for most custom and simple binary formats.  But for
+/// complex protocols the `Putter` and `Get` structures should be used directly.
+///
+/// Instances of `Serializable` should satisfy a single simple law:
+///
+///     decode • encode == id
 public protocol Serializable {
-	static func deserialize<R>() -> Get<Self, R>
+	/// Encode a value.
 	var serialize : Put { get }
+	/// Decode a value.
+	static func deserialize<R>() -> Get<Self, R>
 }
 
 extension Bool : Serializable {
