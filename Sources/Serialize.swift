@@ -222,13 +222,13 @@ extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
 		return Int.deserialize().flatMap { n in
 			return Get.byReadingBytes(n) { s in
-				return String(cString: s.map { Int8(bitPattern: $0) })
+				return String(validatingUTF8: s.map { Int8(bitPattern: $0) })!
 			} 
 		}
 	}
 	
 	public var serialize : Put {
-		return self.utf8.count.serialize 
-			.putByteString(ByteString(self.utf8))
+		return self.utf8.count.serialize
+			.putByteString(self.utf8CString.map { UInt8(bitPattern: $0) })
 	}
 }

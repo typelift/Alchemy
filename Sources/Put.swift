@@ -81,7 +81,7 @@ public struct PutM<A> {
 		return self.flatMap { _ in Put.tell(Builder.fromByteString(s)) }
 	}
 	
-	fileprivate static func tell(_ b : Builder) -> Put {
+	internal static func tell(_ b : Builder) -> Put {
 		return Put(unPut: ((), b))
 	}
 }
