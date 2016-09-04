@@ -236,7 +236,7 @@ extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
 		return Int.deserialize().flatMap { n in
 			return Get.byReadingBytes(n) { s in
-				return String(validatingUTF8: s.map { Int8(bitPattern: $0) })!
+				return String(validatingUTF8: s.map { Int8(bitPattern: $0) }) ?? ""
 			} 
 		}
 	}
