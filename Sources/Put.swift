@@ -6,44 +6,44 @@
 //  Copyright © 2016 TypeLift. All rights reserved.
 //
 
-public typealias Put = PutM<()>
+public typealias Put = Putter<()>
 
-extension PutM /*: Functor*/ {
-	public func map<B>(_ f : (A) -> B) -> PutM<B> {
+extension Putter /*: Functor*/ {
+	public func map<B>(_ f : (A) -> B) -> Putter<B> {
 		let pp = self.unPut
-		return PutM<B>(unPut: (f(pp.0), pp.1))
+		return Putter<B>(unPut: (f(pp.0), pp.1))
 	}
 }
 
-extension PutM /*: Applicative*/ {
-	public static func pure(_ x : A) -> PutM<A> {
-		return PutM(unPut: (x, Builder.empty()))
+extension Putter /*: Applicative*/ {
+	public static func pure(_ x : A) -> Putter<A> {
+		return Putter(unPut: (x, Builder.empty()))
 	}
 
-	public func ap<B>(_ m : PutM<(A) -> B>) -> PutM<B> {
+	public func ap<B>(_ m : Putter<(A) -> B>) -> Putter<B> {
 		let pp = m.unPut
 		let xx = self.unPut
-		return PutM<B>(unPut: (pp.0(xx.0), pp.1.append(xx.1)))
+		return Putter<B>(unPut: (pp.0(xx.0), pp.1.append(xx.1)))
 	}
 }
 
-extension PutM /*: Monad*/ {
-	public func flatMap<B>(_ k : (A) -> PutM<B>) -> PutM<B> {
+extension Putter /*: Monad*/ {
+	public func flatMap<B>(_ k : (A) -> Putter<B>) -> Putter<B> {
 		let pp = self.unPut
 		let xx = k(pp.0).unPut
-		return PutM<B>(unPut: (xx.0, pp.1.append(xx.1)))
+		return Putter<B>(unPut: (xx.0, pp.1.append(xx.1)))
 	}
 	
-	public func then<B>(_ r : PutM<B>) -> PutM<B> {
+	public func then<B>(_ r : Putter<B>) -> Putter<B> {
 		return self >>> r
 	}
 }
 
-public func >>- <A, B>(m : PutM<A>, fn : (A) -> PutM<B>) -> PutM<B> {
+public func >>- <A, B>(m : Putter<A>, fn : (A) -> Putter<B>) -> Putter<B> {
 	return m.flatMap(fn)
 }
 
-public func >>> <A, B>(l : PutM<A>, r : PutM<B>) -> PutM<B> {
+public func >>> <A, B>(l : Putter<A>, r : Putter<B>) -> Putter<B> {
 	return l.flatMap { _ in
 		return r
 	}
@@ -62,7 +62,7 @@ public func >>> <A, B>(l : PutM<A>, r : PutM<B>) -> PutM<B> {
 //	return Put.tell(Builder.putWord32le(x))
 //}
 
-public struct PutM<A> {
+public struct Putter<A> {
 	fileprivate let unPut : (A, Builder)
 	
 	func exec() -> Builder {
@@ -81,7 +81,7 @@ public struct PutM<A> {
 		return self.flatMap { _ in Put.tell(Builder.fromByteString(s)) }
 	}
 	
-	internal static func tell(_ b : Builder) -> Put {
+	fileprivate static func tell(_ b : Builder) -> Put {
 		return Put(unPut: ((), b))
 	}
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2016 TypeLift. All rights reserved.
 //
 
+///
 public protocol Serializable {
 	static func deserialize<R>() -> Get<Self, R>
 	var serialize : Put { get }
