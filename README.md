@@ -3,4 +3,13 @@
 [![Gitter chat](https://badges.gitter.im/DPVN/chat.png)](https://gitter.im/typelift/general?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
 
 # Alchemy
-Declarative Binary Serialization for Swift Structures
+ 
+Declarative Binary Serialization for Swift Structures 
+
+# System Requirements
+ 
+Alchemy supports OS X 10.9+, iOS 8.0+, tvOS 9.0+, and watchOS 2.0+.
+
+# License
+ 
+Alchemy is released under an MIT license.

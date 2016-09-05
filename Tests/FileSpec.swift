@@ -12,11 +12,14 @@ import XCTest
 
 extension Foo : Arbitrary {
 	static var arbitrary : Gen<Foo> {
-		return Foo.create
-			<^> UInt32.arbitrary
-			<*> UInt32.arbitrary
-			<*> UInt32.arbitrary
-			<*> String.arbitrary
+		return Gen.compose { c in
+			return Foo(
+				x: c.generate(), 
+				y: c.generate(), 
+				z: c.generate(), 
+				s: c.generate()
+			)
+		}
 	}
 }
 
@@ -26,7 +29,7 @@ struct Foo : Equatable {
 	let z : UInt32
 	let s : String
 	
-	static func create(x : UInt32) -> UInt32 -> UInt32 -> String -> Foo {
+	static func create(x : UInt32) -> (UInt32) -> (UInt32) -> (String) -> Foo {
 		return { y in { z in { s in Foo(x: x, y: y, z: z, s: s) } } }
 	}
 }

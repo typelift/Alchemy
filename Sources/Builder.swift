@@ -20,27 +20,27 @@ struct Buffer {
 	}
 
 	init(size : Int) {
-		self.buf = UnsafeMutablePointer<UInt8>.alloc(size)
+		self.buf = UnsafeMutablePointer<UInt8>.allocate(capacity: size)
 		self.offset = 0
 		self.used = 0
 		self.left = size
 	}
 
-	func writeBuffer(f : UnsafeMutablePointer<UInt8> -> Int) -> Buffer {
-		let n = f(self.buf.advancedBy(self.offset + self.used))
+	func writeBuffer(_ f : (UnsafeMutablePointer<UInt8>) -> Int) -> Buffer {
+		let n = f(self.buf.advanced(by: self.offset + self.used))
 		return Buffer(buf: self.buf, offset: self.offset, used: (self.used + n), left: self.left - n)
 	}
 	
-	private static let defaultSize = 32 * (1024) - (2 * sizeof(Int.self))
+	fileprivate static let defaultSize = 32 * (1024) - (2 * MemoryLayout<Int>.size)
 }
 
 struct Builder {
-	let runBuilder : ((Buffer -> ByteString), Buffer) -> ByteString
+	let runBuilder : (((Buffer) -> ByteString), Buffer) -> ByteString
 
 	var forceByteString : ByteString {
 		let buf = Buffer(size: Buffer.defaultSize)
 		let s = self.append(Builder.flush()).runBuilder({ _ in [] }, buf)
-		buf.buf.dealloc(buf.used + buf.left)
+		buf.buf.deallocate(capacity: buf.used + buf.left)
 		return s
 	}
 
@@ -48,11 +48,11 @@ struct Builder {
 		return Builder { k, buf in k(buf) }
 	}
 
-	static func mapBuilder(f : ByteString -> ByteString) -> Builder {
+	static func mapBuilder(_ f : @escaping (ByteString) -> ByteString) -> Builder {
 		return Builder { k, b in return f(k(b)) }
 	}
 
-	static func fromByteString(bs : ByteString) -> Builder {
+	static func fromByteString(_ bs : ByteString) -> Builder {
 		if bs.isEmpty {
 			return empty()
 		} else {
@@ -60,15 +60,15 @@ struct Builder {
 		}
 	}
 
-	static func withSize(f : Int -> Builder) -> Builder {
+	static func withSize(_ f : @escaping (Int) -> Builder) -> Builder {
 		return Builder { k, buf in f(buf.left).runBuilder(k, buf) }
 	}
 
-	static func withBuffer(f : Buffer -> Buffer) -> Builder {
+	static func withBuffer(_ f : @escaping (Buffer) -> Buffer) -> Builder {
 		return Builder { k, buf in k(f(buf)) }
 	}
 
-	static func ensureFree(n : Int) -> Builder {
+	static func ensureFree(_ n : Int) -> Builder {
 		return withSize { l in
 			if n <= l {
 				return empty()
@@ -78,7 +78,7 @@ struct Builder {
 		}
 	}
 
-	static func writeAtMost(n : Int, f : UnsafeMutablePointer<UInt8> -> Int) -> Builder {
+	static func writeAtMost(_ n : Int, f : @escaping (UnsafeMutablePointer<UInt8>) -> Int) -> Builder {
 		return ensureFree(n).append(withBuffer({ b in b.writeBuffer(f) }))
 	}
 
@@ -123,7 +123,7 @@ struct Builder {
 //		}
 //	}
 
-	func append(other : Builder) -> Builder {
+	func append(_ other : Builder) -> Builder {
 		return Builder { k, buf in self.runBuilder({ (buf2) in other.runBuilder(k, buf2) }, buf) }
 	}
 }

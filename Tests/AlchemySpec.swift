@@ -10,7 +10,7 @@ import Alchemy
 import SwiftCheck
 import XCTest
 
-func roundTripWith<A : protocol<Equatable, Serializable>>(x : A) -> Property {
+func roundTripWith<A : Equatable & Serializable>(_ x : A) -> Property {
 	return x ==== runGet(A.deserialize(), x.serialize.run())
 }
 
@@ -72,11 +72,10 @@ class AlchemySpec : XCTestCase {
 			return roundTripWith(x)
 		}
 		
-//		let arg = CheckerArguments(replay: (StdGen(11130740, 1029952160), 0))
-//		property("round trip", arguments: arg) <- forAll { (x : String) in
-//			return x ==== runGet(String.deserialize(), x.serialize.run())
-//		}
-		
+		property("round trip") <- forAll { (x : String) in
+			return roundTripWith(x)
+		}
+
 		property("round trip") <- forAll { (x : Foo) in
 			return roundTripWith(x)
 		}

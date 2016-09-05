@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
+               BlueprintIdentifier = "82AA05991D7CDDB000DD3037"
                BuildableName = "Alchemy.framework"
-               BlueprintName = "Alchemy-iOS"
+               BlueprintName = "Alchemy-watchOS"
                ReferencedContainer = "container:Alchemy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,26 +28,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82373A1D1CD405DB00CBAF3C"
-               BuildableName = "Alchemy-iOSTests.xctest"
-               BlueprintName = "Alchemy-iOSTests"
-               ReferencedContainer = "container:Alchemy.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
-            BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
-            ReferencedContainer = "container:Alchemy.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +45,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
+            BlueprintIdentifier = "82AA05991D7CDDB000DD3037"
             BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
+            BlueprintName = "Alchemy-watchOS"
             ReferencedContainer = "container:Alchemy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -82,9 +63,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
+            BlueprintIdentifier = "82AA05991D7CDDB000DD3037"
             BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
+            BlueprintName = "Alchemy-watchOS"
             ReferencedContainer = "container:Alchemy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

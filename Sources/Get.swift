@@ -8,36 +8,44 @@
 
 public typealias ByteString = [UInt8]
 
+/// `Get` contains a lazy function that carries the information needed to
+/// deserialize a byte string into either value or an error.
 public struct Get<A, R> {
-	private let runCont : (ByteString, Success<A, R>.T) -> DecodeResult<R>
+	fileprivate let runCont : (ByteString, Success<A, R>.T) -> DecodeResult<R>
 
-	public static func byReadingBytes(n : Int, _ f : ByteString -> A) -> Get<A, R> {
+	/// Creates a `Get`ter that reads a given number of a bytes from the byte
+	/// string buffer to construct a value.
+	public static func byReadingBytes(_ n : Int, _ f : @escaping (ByteString) -> A) -> Get<A, R> {
 		if n == 0 {
 			return Get.pure(f([]))
 		}
 		return ensureN(n).flatMap { _ in
 			return Get<A, R> { inp, ks in
-				return ks(ByteString(inp[inp.startIndex.advancedBy(n)..<inp.endIndex]), f(inp))
+				return ks(ByteString(inp[inp.indices.suffix(from: inp.startIndex.advanced(by: n))]), f(inp))
 			}
 		}
 	}
-	
-	public func byReadingBytes(n : Int, _ f : ByteString -> A) -> Get<A, R> {
+
+	/// Extends a `Get`ter to read additional data from a byte string buffer to
+	/// construct a value.
+	public func byReadingBytes(_ n : Int, _ f : @escaping (ByteString) -> A) -> Get<A, R> {
 		return self.flatMap { _ in Get.byReadingBytes(n, f) }
 	}
 }
 
-public func runGet<A>(g : Get<A, A>, _ lbs0 : ByteString) -> A  {
-	switch g.runCont(lbs0, { i, a in DecodeResult<A>.Done(i, a) }) {
-	case let .Done(_, x):
+/// Executes the function contained in the `Get`ter to deserialize a value.
+public func runGet<A>(_ g : Get<A, A>, _ lbs0 : ByteString) -> A  {
+	switch g.runCont(lbs0, { i, a in DecodeResult<A>.done(i, a) }) {
+	case let .done(_, x):
 		return x
-	case let .Fail(_ , msg):
+	case let .fail(_ , msg):
 		fatalError("runGet: " + msg)
 	}
 }
 
 extension Get /*: Functor*/ {
-	func map<B>(f : A -> B) -> Get<B, R> {
+	/// Applies a function to the result of deserializing a value.
+	func map<B>(_ f : @escaping (A) -> B) -> Get<B, R> {
 		return Get<B, R> { (i, ks) in
 			return self.runCont(i) { (i2, a) in
 				return ks(i2, f(a))
@@ -46,56 +54,58 @@ extension Get /*: Functor*/ {
 	}
 }
 
-public func <^> <A, B, R>(f : A -> B, g : Get<A, R>) -> Get<B, R> {
+public func <^> <A, B, R>(f : @escaping (A) -> B, g : Get<A, R>) -> Get<B, R> {
 	return g.map(f)
 }
 
 extension Get /*: Applicative*/ {
-	static func pure(x : A) -> Get<A, R> {
+	/// Constructs a `Get`ter that reads no bytes and returns a value.
+	static func pure(_ x : A) -> Get<A, R> {
 		return Get { (s, ks) in
 			return ks(s, x)
 		}
 	}
 
-	public func ap<B>(fn : Get<A -> B, R>) -> Get<B, R> {
-		return fn <*> self
+	public func ap<B>(_ fn : Get<(A) -> B, R>) -> Get<B, R> {
+		return fn.flatMap { b in
+			return self.flatMap { a in
+				return Get<B, R>.pure(b(a))
+			}
+		}
 	}
 }
 
-public func <*> <A, B, R>(d : Get<A -> B, R>, e : Get<A, R>) -> Get<B, R> {
-	return d.flatMap { b in
-		return e.flatMap { a in
-			return Get.pure(b(a))
-		}
-	}
+public func <*> <A, B, R>(d : Get<(A) -> B, R>, e : Get<A, R>) -> Get<B, R> {
+	return e.ap(d)
 }
 
 extension Get /*: Monad*/ {
-	public func flatMap<B>(f : A -> Get<B, R>) -> Get<B, R> {
-		return self >>- f
-	}
-}
-
-public func >>- <A, B, R>(m : Get<A, R>, fn : A -> Get<B, R>) -> Get<B, R> {
-	return Get<B, R> { i, ks in
-		return m.runCont(i) { i2, a in
-			return fn(a).runCont(i2, ks)
+	/// Applies a function to continue deserializing values from a buffer.
+	public func flatMap<B>(_ fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
+		return Get<B, R> { i, ks in
+			return self.runCont(i) { i2, a in
+				return fn(a).runCont(i2, ks)
+			}
 		}
 	}
 }
 
-func ensureN<R>(n : Int) -> Get<(), R> {
-	func put(s : ByteString) -> Get<(), R> {
+public func >>- <A, B, R>(m : Get<A, R>, fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
+	return m.flatMap(fn)
+}
+
+private func ensureN<R>(_ n : Int) -> Get<(), R> {
+	func put(_ s : ByteString) -> Get<(), R> {
 		return Get { inp, ks in
 			return ks(s, ())
 		}
 	}
 	
-	func enoughChunks(n : Int, _ str : ByteString) -> Either<Int, (ByteString, ByteString)> {
+	func enoughChunks(_ n : Int, _ str : ByteString) -> Either<Int, (ByteString, ByteString)> {
 		if str.count >= n {
-			return Either.Right(str, [])
+			return Either.right(str, [])
 		} else {
-			return Either.Left(n - Int(str.count))
+			return Either.left(n - Int(str.count))
 		}
 	}
 
@@ -105,11 +115,11 @@ func ensureN<R>(n : Int) -> Get<(), R> {
 		} else {
 			return Get(runCont: { (inp, ks) in
 				switch enoughChunks(n, inp) {
-				case let .Left(cnt):
+				case let .left(cnt):
 					return Get(runCont: { (_, _) in
-						return DecodeResult.Fail(inp, "Not enough bytes.  Expected \(n) bytes but recieved a buffer with only \(cnt) bytes")
+						return DecodeResult.fail(inp, "Not enough bytes.  Expected \(n) bytes but recieved a buffer with only \(cnt) bytes")
 					}).runCont([], ks)
-				case let .Right((want, rest)):
+				case let .right((want, rest)):
 					return ks(rest, want)
 				}
 			}).flatMap(put).runCont(inp, ks)
@@ -118,8 +128,8 @@ func ensureN<R>(n : Int) -> Get<(), R> {
 }
 
 indirect enum DecodeResult<A> {
-	case Fail(ByteString, String)
-	case Done(ByteString, A)
+	case fail(ByteString, String)
+	case done(ByteString, A)
 }
 
 internal enum Success<A, R> {
@@ -127,8 +137,8 @@ internal enum Success<A, R> {
 }
 
 internal indirect enum Either<L, R> {
-	case Left(L)
-	case Right(R)
+	case left(L)
+	case right(R)
 }
 
 internal enum Consume<S> {
