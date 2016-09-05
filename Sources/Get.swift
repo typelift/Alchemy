@@ -45,7 +45,7 @@ public func runGet<A>(_ g : Get<A, A>, _ lbs0 : ByteString) -> A  {
 
 extension Get /*: Functor*/ {
 	/// Applies a function to the result of deserializing a value.
-	func map<B>(_ f : @escaping (A) -> B) -> Get<B, R> {
+	public func map<B>(_ f : @escaping (A) -> B) -> Get<B, R> {
 		return Get<B, R> { (i, ks) in
 			return self.runCont(i) { (i2, a) in
 				return ks(i2, f(a))
@@ -60,7 +60,7 @@ public func <^> <A, B, R>(f : @escaping (A) -> B, g : Get<A, R>) -> Get<B, R> {
 
 extension Get /*: Applicative*/ {
 	/// Constructs a `Get`ter that reads no bytes and returns a value.
-	static func pure(_ x : A) -> Get<A, R> {
+	public static func pure(_ x : A) -> Get<A, R> {
 		return Get { (s, ks) in
 			return ks(s, x)
 		}
@@ -92,6 +92,106 @@ extension Get /*: Monad*/ {
 
 public func >>- <A, B, R>(m : Get<A, R>, fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
 	return m.flatMap(fn)
+}
+
+extension Get /*: Monoidal*/ {
+	public static func zip<B>(_ l : Get<A, R>, _ r : Get<B, R>) -> Get<(A, B), R> {
+		return l.flatMap { l in
+			return r.flatMap { r in
+				return Get<(A, B), R>.pure((l, r))
+			}
+		}
+	}
+
+	public static func zip<B, C>(_ l : Get<A, R>, _ m : Get<B, R>, _ r : Get<C, R>) -> Get<(A, B, C), R> {
+		return l.flatMap { l in
+			return m.flatMap { m in
+				return r.flatMap { r in
+					return Get<(A, B, C), R>.pure((l, m, r))
+				}
+			}
+		}
+	}
+
+	public static func zip<B, C, D>(_ l : Get<A, R>, _ m1 : Get<B, R>, _ m2 : Get<C, R>, _ r : Get<D, R>) -> Get<(A, B, C, D), R> {
+		return l.flatMap { l in
+			return m1.flatMap { m1 in
+				return m2.flatMap { m2 in
+					return r.flatMap { r in
+						return Get<(A, B, C, D), R>.pure((l, m1, m2, r))
+					}
+				}
+			}
+		}
+	}
+
+	public static func zip<B, C, D, E>(_ l : Get<A, R>, _ m1 : Get<B, R>, _ m2 : Get<C, R>, _ m3 : Get<D, R>, _ r : Get<E, R>) -> Get<(A, B, C, D, E), R> {
+		return l.flatMap { l in
+			return m1.flatMap { m1 in
+				return m2.flatMap { m2 in
+					return m3.flatMap { m3 in
+						return r.flatMap { r in
+							return Get<(A, B, C, D, E), R>.pure((l, m1, m2, m3, r))
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public static func zip<B, C, D, E, F>(_ l : Get<A, R>, _ m1 : Get<B, R>, _ m2 : Get<C, R>, _ m3 : Get<D, R>, _ m4 : Get<E, R>, _ r : Get<F, R>) -> Get<(A, B, C, D, E, F), R> {
+		return l.flatMap { l in
+			return m1.flatMap { m1 in
+				return m2.flatMap { m2 in
+					return m3.flatMap { m3 in
+						return m4.flatMap { m4 in
+							return r.flatMap { r in
+								return Get<(A, B, C, D, E, F), R>.pure((l, m1, m2, m3, m4, r))
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public static func zip<B, C, D, E, F, G>(_ l : Get<A, R>, _ m1 : Get<B, R>, _ m2 : Get<C, R>, _ m3 : Get<D, R>, _ m4 : Get<E, R>, _ m5 : Get<F, R>, _ r : Get<G, R>) -> Get<(A, B, C, D, E, F, G), R> {
+		return l.flatMap { l in
+			return m1.flatMap { m1 in
+				return m2.flatMap { m2 in
+					return m3.flatMap { m3 in
+						return m4.flatMap { m4 in
+							return m5.flatMap { m5 in
+								return r.flatMap { r in
+									return Get<(A, B, C, D, E, F, G), R>.pure((l, m1, m2, m3, m4, m5, r))
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	public static func zip<B, C, D, E, F, G, H>(_ l : Get<A, R>, _ m1 : Get<B, R>, _ m2 : Get<C, R>, _ m3 : Get<D, R>, _ m4 : Get<E, R>, _ m5 : Get<F, R>, _ m6 : Get<G, R>, _ r : Get<H, R>) -> Get<(A, B, C, D, E, F, G, H), R> {
+		return l.flatMap { l in
+			return m1.flatMap { m1 in
+				return m2.flatMap { m2 in
+					return m3.flatMap { m3 in
+						return m4.flatMap { m4 in
+							return m5.flatMap { m5 in
+								return m6.flatMap { m6 in
+									return r.flatMap { r in
+										return Get<(A, B, C, D, E, F, G, H), R>.pure((l, m1, m2, m3, m4, m5, m6, r))
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
 private func ensureN<R>(_ n : Int) -> Get<(), R> {

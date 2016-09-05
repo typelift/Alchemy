@@ -28,10 +28,6 @@ struct Foo : Equatable {
 	let y : UInt32
 	let z : UInt32
 	let s : String
-	
-	static func create(x : UInt32) -> (UInt32) -> (UInt32) -> (String) -> Foo {
-		return { y in { z in { s in Foo(x: x, y: y, z: z, s: s) } } }
-	}
 }
 
 func == (l : Foo, r : Foo) -> Bool {
@@ -40,11 +36,12 @@ func == (l : Foo, r : Foo) -> Bool {
 
 extension Foo : Serializable {
 	static func deserialize<R>() -> Get<Foo, R> {
-		return Foo.create 
-			<^> UInt32.deserialize() 
-			<*> UInt32.deserialize() 
-			<*> UInt32.deserialize()
-			<*> String.deserialize()
+		return Get.zip(
+			UInt32.deserialize(),
+			UInt32.deserialize(),
+			UInt32.deserialize(),
+			String.deserialize()
+		).map(Foo.init)
 	}
 
 	var serialize : Put {
