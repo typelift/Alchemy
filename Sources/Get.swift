@@ -54,10 +54,6 @@ extension Get /*: Functor*/ {
 	}
 }
 
-public func <^> <A, B, R>(f : @escaping (A) -> B, g : Get<A, R>) -> Get<B, R> {
-	return g.map(f)
-}
-
 extension Get /*: Applicative*/ {
 	/// Constructs a `Get`ter that reads no bytes and returns a value.
 	public static func pure(_ x : A) -> Get<A, R> {
@@ -75,10 +71,6 @@ extension Get /*: Applicative*/ {
 	}
 }
 
-public func <*> <A, B, R>(d : Get<(A) -> B, R>, e : Get<A, R>) -> Get<B, R> {
-	return e.ap(d)
-}
-
 extension Get /*: Monad*/ {
 	/// Applies a function to continue deserializing values from a buffer.
 	public func flatMap<B>(_ fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
@@ -88,10 +80,6 @@ extension Get /*: Monad*/ {
 			}
 		}
 	}
-}
-
-public func >>- <A, B, R>(m : Get<A, R>, fn : @escaping (A) -> Get<B, R>) -> Get<B, R> {
-	return m.flatMap(fn)
 }
 
 extension Get /*: Monoidal*/ {

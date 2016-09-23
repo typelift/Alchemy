@@ -45,10 +45,10 @@ extension Foo : Serializable {
 	}
 
 	var serialize : Put {
-		return  self.x.serialize
-			>>> self.y.serialize
-			>>> self.z.serialize
-			>>> self.s.serialize
+		return self.x.serialize
+			.then(self.y.serialize)
+			.then(self.z.serialize)
+			.then(self.s.serialize)
 	}
 }
 
