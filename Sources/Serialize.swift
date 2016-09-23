@@ -101,20 +101,14 @@ extension Int64 : Serializable {
 }
 
 extension Int : Serializable {
+	@available(*, unavailable, message: "Int is an architecturally-dependent type that should not be serialized")
 	public static func deserialize<R>() -> Get<Int, R> {
-	#if (arch(x86_64) || arch(arm64))
-		return Int64.deserialize().map { Int($0) }
-	#else
-		return Int32.deserialize().map { Int($0) }
-	#endif
+		fatalError("Int is an architecturally-dependent type that should not be deserialized")
 	}
-	
+
+	@available(*, unavailable, message: "Int is an architecturally-dependent type that should not be serialized")
 	public var serialize : Put {
-	#if (arch(x86_64) || arch(arm64))
-		return Int64(self).serialize
-	#else
-		return Int32(self).serialize
-	#endif
+		fatalError("Int is an architecturally-dependent type that should not be p sserialized")
 	}
 }
 
@@ -195,20 +189,14 @@ extension UInt64 : Serializable {
 }
 
 extension UInt : Serializable {
+	@available(*, unavailable, message: "UInt is an architecturally-dependent type that should not be serialized")
 	public static func deserialize<R>() -> Get<UInt, R> {
-	#if (arch(x86_64) || arch(arm64))
-		return UInt64.deserialize().map { UInt($0) }
-	#else
-		return UInt32.deserialize().map { UInt($0) }
-	#endif
+		fatalError("UInt is an architecturally-dependent type that should not be deserialized")
 	}
-	
+
+	@available(*, unavailable, message: "UInt is an architecturally-dependent type that should not be serialized")
 	public var serialize : Put {
-	#if (arch(x86_64) || arch(arm64))
-		return UInt64(bitPattern: Int64(self)).serialize
-	#else
-		return UInt32(bitPattern: Int32(self)).serialize
-	#endif
+		fatalError("UInt is an architecturally-dependent type that should not be serialized")
 	}
 }
 
@@ -234,15 +222,18 @@ extension Double : Serializable {
 
 extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
-		return Int.deserialize().flatMap { n in
-			return Get.byReadingBytes(n) { s in
+		return Int64.deserialize().flatMap { n in
+			return Get.byReadingBytes(Int(n)) { s in
+				if s.isEmpty {
+					return ""
+				}
 				return String(validatingUTF8: s.map { Int8(bitPattern: $0) }) ?? ""
 			} 
 		}
 	}
 	
 	public var serialize : Put {
-		return self.utf8.count.serialize
+		return Int64(self.utf8.count).serialize
 			.putByteString(self.utf8CString.map { UInt8(bitPattern: $0) })
 	}
 }
