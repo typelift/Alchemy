@@ -36,10 +36,6 @@ class AlchemySpec : XCTestCase {
 			return roundTripWith(x)
 		}
 		
-		property("round trip") <- forAll { (x : Int) in
-			return roundTripWith(x)
-		}
-		
 		property("round trip") <- forAll { (x : UInt8) in
 			return roundTripWith(x)
 		}
@@ -57,10 +53,6 @@ class AlchemySpec : XCTestCase {
 		}
 
 		property("round trip") <- forAll { (x : UInt64) in
-			return roundTripWith(x)
-		}
-		
-		property("round trip") <- forAll { (x : UInt) in
 			return roundTripWith(x)
 		}
 		
