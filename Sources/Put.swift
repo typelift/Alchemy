@@ -41,17 +41,9 @@ extension Putter /*: Monad*/ {
 	}
 	
 	public func then<B>(_ r : Putter<B>) -> Putter<B> {
-		return self >>> r
-	}
-}
-
-public func >>- <A, B>(m : Putter<A>, fn : (A) -> Putter<B>) -> Putter<B> {
-	return m.flatMap(fn)
-}
-
-public func >>> <A, B>(l : Putter<A>, r : Putter<B>) -> Putter<B> {
-	return l.flatMap { _ in
-		return r
+		return self.flatMap { _ in
+			return r
+		}
 	}
 }
 

@@ -9,7 +9,7 @@ matrix:
       before_install:
         - git submodule update --init --recursive
       script:
-      # Restore pod build before shipping for 3.0 
+      # Restore pod build before shipping for 3.0
       # - pod lib lint
         - carthage build --no-skip-current
     - os: osx
@@ -45,7 +45,7 @@ matrix:
         - tar xzf swift-3.0-PREVIEW-6-ubuntu14.04.tar.gz
         - export PATH=${PWD}/swift-3.0-PREVIEW-6-ubuntu14.04/usr/bin:"${PATH}"
       script:
-        #  - swift build
+        - swift build
 notifications:
   webhooks:
     urls:
