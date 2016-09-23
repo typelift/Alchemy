@@ -108,7 +108,7 @@ extension Int : Serializable {
 
 	@available(*, unavailable, message: "Int is an architecturally-dependent type that should not be serialized")
 	public var serialize : Put {
-		fatalError("Int is an architecturally-dependent type that should not be serialized")
+		fatalError("Int is an architecturally-dependent type that should not be p sserialized")
 	}
 }
 
@@ -224,6 +224,9 @@ extension String : Serializable {
 	public static func deserialize<R>() -> Get<String, R> {
 		return Int64.deserialize().flatMap { n in
 			return Get.byReadingBytes(Int(n)) { s in
+				if s.isEmpty {
+					return ""
+				}
 				return String(validatingUTF8: s.map { Int8(bitPattern: $0) }) ?? ""
 			} 
 		}
