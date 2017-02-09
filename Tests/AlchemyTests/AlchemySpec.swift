@@ -72,4 +72,10 @@ class AlchemySpec : XCTestCase {
 			return roundTripWith(x)
 		}
 	}
+
+	#if !(os(macOS) || os(iOS) || os(watchOS) || os(tvOS))
+	static var allTests = testCase([
+		("testProperties", testProperties),
+	])
+	#endif
 }

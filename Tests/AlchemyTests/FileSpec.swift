@@ -31,7 +31,7 @@ struct Foo : Equatable {
 }
 
 func == (l : Foo, r : Foo) -> Bool {
-	return l.x == r.x && l.y == r.y && l.z == r.z
+	return l.x == r.x && l.y == r.y && l.z == r.z && l.s == r.s
 }
 
 extension Foo : Serializable {

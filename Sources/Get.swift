@@ -191,7 +191,7 @@ private func ensureN<R>(_ n : Int) -> Get<(), R> {
 	
 	func enoughChunks(_ n : Int, _ str : ByteString) -> Either<Int, (ByteString, ByteString)> {
 		if str.count >= n {
-			return Either.right((str, []))
+			return Either.right(str, [])
 		} else {
 			return Either.left(n - Int(str.count))
 		}
