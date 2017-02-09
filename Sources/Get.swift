@@ -11,7 +11,7 @@ public typealias ByteString = [UInt8]
 /// `Get` contains a lazy function that carries the information needed to
 /// deserialize a byte string into either value or an error.
 public struct Get<A, R> {
-	fileprivate let runCont : (ByteString, Success<A, R>.T) -> DecodeResult<R>
+	fileprivate let runCont : (ByteString, (ByteString, A) -> DecodeResult<R>) -> DecodeResult<R>
 
 	/// Creates a `Get`ter that reads a given number of a bytes from the byte
 	/// string buffer to construct a value.
@@ -191,7 +191,7 @@ private func ensureN<R>(_ n : Int) -> Get<(), R> {
 	
 	func enoughChunks(_ n : Int, _ str : ByteString) -> Either<Int, (ByteString, ByteString)> {
 		if str.count >= n {
-			return Either.right(str, [])
+			return Either.right((str, []))
 		} else {
 			return Either.left(n - Int(str.count))
 		}
@@ -220,17 +220,9 @@ indirect enum DecodeResult<A> {
 	case done(ByteString, A)
 }
 
-internal enum Success<A, R> {
-	typealias T = (ByteString, A) -> DecodeResult<R>
-}
-
 internal indirect enum Either<L, R> {
 	case left(L)
 	case right(R)
-}
-
-internal enum Consume<S> {
-	typealias T = (S, ByteString) -> Either<S, (ByteString, ByteString)>
 }
 
 //public func getWord16le<R>() -> Get<UInt16, R> {

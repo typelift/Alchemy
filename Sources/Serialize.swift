@@ -202,21 +202,21 @@ extension UInt : Serializable {
 
 extension Float : Serializable {
 	public static func deserialize<R>() -> Get<Float, R> {
-		return UInt32.deserialize().map { unsafeBitCast($0, to: Float.self) }
+		return UInt32.deserialize().map(Float.init(bitPattern:))
 	}
 	
 	public var serialize : Put {
-		return unsafeBitCast(self, to: UInt32.self).serialize
+		return self.bitPattern.serialize
 	}
 }
 
 extension Double : Serializable {
 	public static func deserialize<R>() -> Get<Double, R> {
-		return UInt64.deserialize().map { unsafeBitCast($0, to: Double.self) }
+		return UInt64.deserialize().map(Double.init(bitPattern:))
 	}
 	
 	public var serialize : Put {
-		return unsafeBitCast(self, to: UInt64.self).serialize
+		return self.bitPattern.serialize
 	}
 }
 
