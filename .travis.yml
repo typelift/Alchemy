@@ -5,7 +5,7 @@ matrix:
   include:
     - os: osx
       language: objective-c
-      osx_image: xcode8
+      osx_image: xcode8.2
       before_install:
         - git submodule update --init --recursive
       script:
@@ -14,7 +14,7 @@ matrix:
         - carthage build --no-skip-current
     - os: osx
       language: objective-c
-      osx_image: xcode8
+      osx_image: xcode8.2
       before_install:
         - git submodule update --init --recursive
       script:
@@ -29,10 +29,9 @@ matrix:
         - echo $SIMULATOR_ID
         - echo $iOS_DEVICE_NAME
         - echo $iOS_RUNTIME_VERSION
-        # !!!: Start simulator w/ desired device—helps avoid issues w/ Xcode timing out when waiting for simulator to become ready
-        - open -b com.apple.iphonesimulator --args -CurrentDeviceUDID $SIMULATOR_ID
+        - xcodebuild build-for-testing -scheme Alchemy-iOS -destination "platform=iOS Simulator,name=${iOS_DEVICE_NAME},OS=${iOS_RUNTIME_VERSION}" | xcpretty -c
         - xcodebuild test -scheme Alchemy-iOS -destination "platform=iOS Simulator,name=${iOS_DEVICE_NAME},OS=${iOS_RUNTIME_VERSION}" | xcpretty -c
-        # -- End iOS --
+        - xcodebuild build-for-testing -scheme Alchemy-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty -c
         - xcodebuild test -scheme Alchemy-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty -c
     - os: linux
       language: generic
@@ -41,9 +40,9 @@ matrix:
       before_install:
         - git submodule update --init --recursive
         - wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
-        - wget https://swift.org/builds/swift-3.0-preview-6/ubuntu1404/swift-3.0-PREVIEW-6/swift-3.0-PREVIEW-6-ubuntu14.04.tar.gz
-        - tar xzf swift-3.0-PREVIEW-6-ubuntu14.04.tar.gz
-        - export PATH=${PWD}/swift-3.0-PREVIEW-6-ubuntu14.04/usr/bin:"${PATH}"
+        - wget https://swift.org/builds/swift-3.0.2-release/ubuntu1404/swift-3.0.2-RELEASE/swift-3.0.2-RELEASE-ubuntu14.04.tar.gz
+        - tar xzf swift-3.0.2-RELEASE-ubuntu14.04.tar.gz
+        - export PATH=${PWD}/swift-3.0.2-RELEASE-ubuntu14.04/usr/bin:"${PATH}"
       script:
         - swift build
 notifications:
