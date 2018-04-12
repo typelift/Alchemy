@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
+               BlueprintIdentifier = "Alchemy::Alchemy"
                BuildableName = "Alchemy.framework"
-               BlueprintName = "Alchemy-iOS"
+               BlueprintName = "Alchemy"
                ReferencedContainer = "container:Alchemy.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,22 +32,13 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82373A1D1CD405DB00CBAF3C"
-               BuildableName = "Alchemy-iOSTests.xctest"
-               BlueprintName = "Alchemy-iOSTests"
+               BlueprintIdentifier = "Alchemy::AlchemyTests"
+               BuildableName = "AlchemyTests.xctest"
+               BlueprintName = "AlchemyTests"
                ReferencedContainer = "container:Alchemy.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
-            BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
-            ReferencedContainer = "container:Alchemy.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -64,9 +55,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
+            BlueprintIdentifier = "Alchemy::Alchemy"
             BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
+            BlueprintName = "Alchemy"
             ReferencedContainer = "container:Alchemy.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -79,15 +70,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82373A141CD405DB00CBAF3C"
-            BuildableName = "Alchemy.framework"
-            BlueprintName = "Alchemy-iOS"
-            ReferencedContainer = "container:Alchemy.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

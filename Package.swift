@@ -1,12 +1,21 @@
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
 	name: "Alchemy",
+	products: [
+		.library(
+			name: "Alchemy",
+			targets: ["Alchemy"]),
+	],
+    dependencies: [
+      .package(url: "https://github.com/typelift/SwiftCheck.git", from: "0.9.0"),
+    ],
 	targets: [
-		Target(name: "Alchemy"),
-	]
+		.target(
+			name: "Alchemy"),
+		.testTarget(
+			name: "AlchemyTests",
+			dependencies: ["Alchemy", "SwiftCheck"]),
+		]
 )
-
-let libAlchemy = Product(name: "Alchemy", type: .Library(.Dynamic), modules: "Alchemy")
-products.append(libAlchemy)
-
