@@ -6,387 +6,147 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		"Alchemy::AlchemyPackageTests::ProductTarget" /* AlchemyPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_37 /* Build configuration list for PBXAggregateTarget "AlchemyPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_40 /* PBXTargetDependency */,
+			);
+			name = AlchemyPackageTests;
+			productName = AlchemyPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		82373A1F1CD405DB00CBAF3C /* Alchemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82373A151CD405DB00CBAF3C /* Alchemy.framework */; };
-		82373A3B1CD405F500CBAF3C /* Alchemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82373A311CD405F400CBAF3C /* Alchemy.framework */; };
-		82373A681CD406BF00CBAF3C /* Alchemy.h in Headers */ = {isa = PBXBuildFile; fileRef = 82373A621CD406BF00CBAF3C /* Alchemy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82373A691CD406BF00CBAF3C /* Alchemy.h in Headers */ = {isa = PBXBuildFile; fileRef = 82373A621CD406BF00CBAF3C /* Alchemy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82373A6A1CD406BF00CBAF3C /* Alchemy.h in Headers */ = {isa = PBXBuildFile; fileRef = 82373A621CD406BF00CBAF3C /* Alchemy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82373A6B1CD406BF00CBAF3C /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A631CD406BF00CBAF3C /* Builder.swift */; };
-		82373A6C1CD406BF00CBAF3C /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A631CD406BF00CBAF3C /* Builder.swift */; };
-		82373A6D1CD406BF00CBAF3C /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A631CD406BF00CBAF3C /* Builder.swift */; };
-		82373A6E1CD406BF00CBAF3C /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A641CD406BF00CBAF3C /* Get.swift */; };
-		82373A6F1CD406BF00CBAF3C /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A641CD406BF00CBAF3C /* Get.swift */; };
-		82373A701CD406BF00CBAF3C /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A641CD406BF00CBAF3C /* Get.swift */; };
-		82373A741CD406BF00CBAF3C /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A661CD406BF00CBAF3C /* Put.swift */; };
-		82373A751CD406BF00CBAF3C /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A661CD406BF00CBAF3C /* Put.swift */; };
-		82373A761CD406BF00CBAF3C /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A661CD406BF00CBAF3C /* Put.swift */; };
-		82373A771CD406BF00CBAF3C /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A671CD406BF00CBAF3C /* Serialize.swift */; };
-		82373A781CD406BF00CBAF3C /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A671CD406BF00CBAF3C /* Serialize.swift */; };
-		82373A791CD406BF00CBAF3C /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A671CD406BF00CBAF3C /* Serialize.swift */; };
-		82373A801CD4073700CBAF3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82373A0D1CD33A6400CBAF3C /* SwiftCheck.framework */; };
-		82373A811CD4073B00CBAF3C /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82573C4B1BDB2F3100549861 /* SwiftCheck.framework */; };
-		82573C221BDAA62700549861 /* Alchemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82573C171BDAA62700549861 /* Alchemy.framework */; };
-		82573C501BDB2F4100549861 /* SwiftCheck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82573C471BDB2F3100549861 /* SwiftCheck.framework */; };
-		82A410661E4D09BC0008F806 /* AlchemySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410641E4D09BC0008F806 /* AlchemySpec.swift */; };
-		82A410671E4D09BC0008F806 /* AlchemySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410641E4D09BC0008F806 /* AlchemySpec.swift */; };
-		82A410681E4D09BC0008F806 /* AlchemySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410641E4D09BC0008F806 /* AlchemySpec.swift */; };
-		82A410691E4D09BC0008F806 /* FileSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410651E4D09BC0008F806 /* FileSpec.swift */; };
-		82A4106A1E4D09BC0008F806 /* FileSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410651E4D09BC0008F806 /* FileSpec.swift */; };
-		82A4106B1E4D09BC0008F806 /* FileSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82A410651E4D09BC0008F806 /* FileSpec.swift */; };
-		82AA05A51D7CDDCB00DD3037 /* Alchemy.h in Headers */ = {isa = PBXBuildFile; fileRef = 82373A621CD406BF00CBAF3C /* Alchemy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		82AA05A71D7CDDD200DD3037 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A631CD406BF00CBAF3C /* Builder.swift */; };
-		82AA05A81D7CDDD200DD3037 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A641CD406BF00CBAF3C /* Get.swift */; };
-		82AA05A91D7CDDD200DD3037 /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A661CD406BF00CBAF3C /* Put.swift */; };
-		82AA05AA1D7CDDD200DD3037 /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82373A671CD406BF00CBAF3C /* Serialize.swift */; };
+		OBJ_25 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_9 /* Builder.swift */; };
+		OBJ_26 /* Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* Get.swift */; };
+		OBJ_27 /* Put.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Put.swift */; };
+		OBJ_28 /* Serialize.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* Serialize.swift */; };
+		OBJ_35 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_46 /* AlchemySpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* AlchemySpec.swift */; };
+		OBJ_47 /* FileSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* FileSpec.swift */; };
+		OBJ_49 /* Alchemy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Alchemy::Alchemy::Product" /* Alchemy.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		82373A0C1CD33A6400CBAF3C /* PBXContainerItemProxy */ = {
+		82D36A95207F0A1A003F1092 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8240CCB11C3A123600EF4D29;
-			remoteInfo = "SwiftCheck-tvOS";
-		};
-		82373A0E1CD33A6400CBAF3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8240CCBA1C3A123700EF4D29;
-			remoteInfo = "SwiftCheck-tvOSTests";
-		};
-		82373A201CD405DB00CBAF3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C0E1BDAA62700549861 /* Project object */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 82373A141CD405DB00CBAF3C;
-			remoteInfo = "Alchemy-iOS";
-		};
-		82373A3C1CD405F500CBAF3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C0E1BDAA62700549861 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 82373A301CD405F400CBAF3C;
-			remoteInfo = "Alchemy-tvOS";
-		};
-		82373A7A1CD4072800CBAF3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 84DF75F71B0BD54600C912B0;
-			remoteInfo = "SwiftCheck-iOS";
-		};
-		82373A7E1CD4073200CBAF3C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 8240CCB01C3A123600EF4D29;
-			remoteInfo = "SwiftCheck-tvOS";
-		};
-		82573C231BDAA62700549861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C0E1BDAA62700549861 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 82573C161BDAA62700549861;
+			remoteGlobalIDString = "Alchemy::Alchemy";
 			remoteInfo = Alchemy;
 		};
-		82573C461BDB2F3100549861 /* PBXContainerItemProxy */ = {
+		82D36A96207F0A1A003F1092 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 844FCC8D198B320500EB242A;
-			remoteInfo = SwiftCheck;
-		};
-		82573C481BDB2F3100549861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 844FCC98198B320500EB242A;
-			remoteInfo = SwiftCheckTests;
-		};
-		82573C4A1BDB2F3100549861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84DF75F81B0BD54600C912B0;
-			remoteInfo = "SwiftCheck-iOS";
-		};
-		82573C4C1BDB2F3100549861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 84DF76021B0BD54600C912B0;
-			remoteInfo = "SwiftCheck-iOSTests";
-		};
-		82573C4E1BDB2F3E00549861 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
+			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 844FCC8C198B320500EB242A;
-			remoteInfo = SwiftCheck;
+			remoteGlobalIDString = "Alchemy::AlchemyTests";
+			remoteInfo = AlchemyTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		82373A151CD405DB00CBAF3C /* Alchemy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alchemy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82373A1E1CD405DB00CBAF3C /* Alchemy-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alchemy-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82373A311CD405F400CBAF3C /* Alchemy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alchemy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82373A3A1CD405F500CBAF3C /* Alchemy-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Alchemy-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		82373A581CD406A800CBAF3C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Tests/Info.plist; sourceTree = SOURCE_ROOT; };
-		82373A621CD406BF00CBAF3C /* Alchemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alchemy.h; path = Sources/Alchemy.h; sourceTree = SOURCE_ROOT; };
-		82373A631CD406BF00CBAF3C /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Builder.swift; path = Sources/Builder.swift; sourceTree = SOURCE_ROOT; };
-		82373A641CD406BF00CBAF3C /* Get.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Get.swift; path = Sources/Get.swift; sourceTree = SOURCE_ROOT; };
-		82373A651CD406BF00CBAF3C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Sources/Info.plist; sourceTree = SOURCE_ROOT; };
-		82373A661CD406BF00CBAF3C /* Put.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Put.swift; path = Sources/Put.swift; sourceTree = SOURCE_ROOT; };
-		82373A671CD406BF00CBAF3C /* Serialize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serialize.swift; path = Sources/Serialize.swift; sourceTree = SOURCE_ROOT; };
-		82573C171BDAA62700549861 /* Alchemy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alchemy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82573C211BDAA62700549861 /* AlchemyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlchemyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SwiftCheck.xcodeproj; path = Carthage/Checkouts/SwiftCheck/SwiftCheck.xcodeproj; sourceTree = SOURCE_ROOT; };
-		82A410641E4D09BC0008F806 /* AlchemySpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlchemySpec.swift; path = Tests/AlchemyTests/AlchemySpec.swift; sourceTree = SOURCE_ROOT; };
-		82A410651E4D09BC0008F806 /* FileSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FileSpec.swift; path = Tests/AlchemyTests/FileSpec.swift; sourceTree = SOURCE_ROOT; };
-		82AA059A1D7CDDB000DD3037 /* Alchemy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Alchemy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Alchemy::Alchemy::Product" /* Alchemy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alchemy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Alchemy::AlchemyTests::Product" /* AlchemyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = AlchemyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		OBJ_10 /* Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Get.swift; sourceTree = "<group>"; };
+		OBJ_11 /* Put.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Put.swift; sourceTree = "<group>"; };
+		OBJ_12 /* Serialize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serialize.swift; sourceTree = "<group>"; };
+		OBJ_15 /* AlchemySpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlchemySpec.swift; sourceTree = "<group>"; };
+		OBJ_16 /* FileSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSpec.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_9 /* Builder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		82373A111CD405DB00CBAF3C /* Frameworks */ = {
+		OBJ_29 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82373A1B1CD405DB00CBAF3C /* Frameworks */ = {
+		OBJ_48 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				82373A811CD4073B00CBAF3C /* SwiftCheck.framework in Frameworks */,
-				82373A1F1CD405DB00CBAF3C /* Alchemy.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A2D1CD405F400CBAF3C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A371CD405F500CBAF3C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82373A801CD4073700CBAF3C /* SwiftCheck.framework in Frameworks */,
-				82373A3B1CD405F500CBAF3C /* Alchemy.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C131BDAA62700549861 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C1E1BDAA62700549861 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82573C501BDB2F4100549861 /* SwiftCheck.framework in Frameworks */,
-				82573C221BDAA62700549861 /* Alchemy.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82AA05961D7CDDB000DD3037 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				OBJ_49 /* Alchemy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		82573C0D1BDAA62700549861 = {
+		OBJ_13 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				82373A621CD406BF00CBAF3C /* Alchemy.h */,
-				82573C191BDAA62700549861 /* Alchemy */,
-				82573C251BDAA62700549861 /* AlchemyTests */,
-				82573C181BDAA62700549861 /* Products */,
+				OBJ_14 /* AlchemyTests */,
 			);
-			sourceTree = "<group>";
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
 		};
-		82573C181BDAA62700549861 /* Products */ = {
+		OBJ_14 /* AlchemyTests */ = {
 			isa = PBXGroup;
 			children = (
-				82573C171BDAA62700549861 /* Alchemy.framework */,
-				82573C211BDAA62700549861 /* AlchemyTests.xctest */,
-				82373A151CD405DB00CBAF3C /* Alchemy.framework */,
-				82373A1E1CD405DB00CBAF3C /* Alchemy-iOSTests.xctest */,
-				82373A311CD405F400CBAF3C /* Alchemy.framework */,
-				82373A3A1CD405F500CBAF3C /* Alchemy-tvOSTests.xctest */,
-				82AA059A1D7CDDB000DD3037 /* Alchemy.framework */,
+				OBJ_15 /* AlchemySpec.swift */,
+				OBJ_16 /* FileSpec.swift */,
+			);
+			name = AlchemyTests;
+			path = Tests/AlchemyTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"Alchemy::AlchemyTests::Product" /* AlchemyTests.xctest */,
+				"Alchemy::Alchemy::Product" /* Alchemy.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
+			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		82573C191BDAA62700549861 /* Alchemy */ = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
-				82373A631CD406BF00CBAF3C /* Builder.swift */,
-				82373A641CD406BF00CBAF3C /* Get.swift */,
-				82373A661CD406BF00CBAF3C /* Put.swift */,
-				82373A671CD406BF00CBAF3C /* Serialize.swift */,
-				82373A651CD406BF00CBAF3C /* Info.plist */,
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_13 /* Tests */,
+				OBJ_17 /* Products */,
 			);
-			path = Alchemy;
+			name = "";
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
-		82573C251BDAA62700549861 /* AlchemyTests */ = {
+		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				82A410641E4D09BC0008F806 /* AlchemySpec.swift */,
-				82A410651E4D09BC0008F806 /* FileSpec.swift */,
-				82373A581CD406A800CBAF3C /* Info.plist */,
-				82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */,
+				OBJ_8 /* Alchemy */,
 			);
-			path = AlchemyTests;
-			sourceTree = "<group>";
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
 		};
-		82573C401BDB2F3100549861 /* Products */ = {
+		OBJ_8 /* Alchemy */ = {
 			isa = PBXGroup;
 			children = (
-				82573C471BDB2F3100549861 /* SwiftCheck.framework */,
-				82573C491BDB2F3100549861 /* SwiftCheckTests.xctest */,
-				82573C4B1BDB2F3100549861 /* SwiftCheck.framework */,
-				82573C4D1BDB2F3100549861 /* SwiftCheck-iOSTests.xctest */,
-				82373A0D1CD33A6400CBAF3C /* SwiftCheck.framework */,
-				82373A0F1CD33A6400CBAF3C /* SwiftCheck-tvOSTests.xctest */,
+				OBJ_9 /* Builder.swift */,
+				OBJ_10 /* Get.swift */,
+				OBJ_11 /* Put.swift */,
+				OBJ_12 /* Serialize.swift */,
 			);
-			name = Products;
-			sourceTree = "<group>";
+			name = Alchemy;
+			path = Sources/Alchemy;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		82373A121CD405DB00CBAF3C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82373A691CD406BF00CBAF3C /* Alchemy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A2E1CD405F400CBAF3C /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82373A6A1CD406BF00CBAF3C /* Alchemy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C141BDAA62700549861 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82373A681CD406BF00CBAF3C /* Alchemy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82AA05971D7CDDB000DD3037 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82AA05A51D7CDDCB00DD3037 /* Alchemy.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		82373A141CD405DB00CBAF3C /* Alchemy-iOS */ = {
+		"Alchemy::Alchemy" /* Alchemy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82373A261CD405DB00CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-iOS" */;
+			buildConfigurationList = OBJ_21 /* Build configuration list for PBXNativeTarget "Alchemy" */;
 			buildPhases = (
-				82373A101CD405DB00CBAF3C /* Sources */,
-				82373A111CD405DB00CBAF3C /* Frameworks */,
-				82373A121CD405DB00CBAF3C /* Headers */,
-				82373A131CD405DB00CBAF3C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Alchemy-iOS";
-			productName = "Alchemy-iOS";
-			productReference = 82373A151CD405DB00CBAF3C /* Alchemy.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		82373A1D1CD405DB00CBAF3C /* Alchemy-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82373A291CD405DB00CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-iOSTests" */;
-			buildPhases = (
-				82373A1A1CD405DB00CBAF3C /* Sources */,
-				82373A1B1CD405DB00CBAF3C /* Frameworks */,
-				82373A1C1CD405DB00CBAF3C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				82373A7B1CD4072800CBAF3C /* PBXTargetDependency */,
-				82373A211CD405DB00CBAF3C /* PBXTargetDependency */,
-			);
-			name = "Alchemy-iOSTests";
-			productName = "Alchemy-iOSTests";
-			productReference = 82373A1E1CD405DB00CBAF3C /* Alchemy-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		82373A301CD405F400CBAF3C /* Alchemy-tvOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82373A421CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOS" */;
-			buildPhases = (
-				82373A2C1CD405F400CBAF3C /* Sources */,
-				82373A2D1CD405F400CBAF3C /* Frameworks */,
-				82373A2E1CD405F400CBAF3C /* Headers */,
-				82373A2F1CD405F400CBAF3C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Alchemy-tvOS";
-			productName = "Alchemy-tvOS";
-			productReference = 82373A311CD405F400CBAF3C /* Alchemy.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		82373A391CD405F500CBAF3C /* Alchemy-tvOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82373A451CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOSTests" */;
-			buildPhases = (
-				82373A361CD405F500CBAF3C /* Sources */,
-				82373A371CD405F500CBAF3C /* Frameworks */,
-				82373A381CD405F500CBAF3C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				82373A7F1CD4073200CBAF3C /* PBXTargetDependency */,
-				82373A3D1CD405F500CBAF3C /* PBXTargetDependency */,
-			);
-			name = "Alchemy-tvOSTests";
-			productName = "Alchemy-tvOSTests";
-			productReference = 82373A3A1CD405F500CBAF3C /* Alchemy-tvOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		82573C161BDAA62700549861 /* Alchemy */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 82573C2B1BDAA62700549861 /* Build configuration list for PBXNativeTarget "Alchemy" */;
-			buildPhases = (
-				82573C121BDAA62700549861 /* Sources */,
-				82573C131BDAA62700549861 /* Frameworks */,
-				82573C141BDAA62700549861 /* Headers */,
-				82573C151BDAA62700549861 /* Resources */,
+				OBJ_24 /* Sources */,
+				OBJ_29 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,768 +154,369 @@
 			);
 			name = Alchemy;
 			productName = Alchemy;
-			productReference = 82573C171BDAA62700549861 /* Alchemy.framework */;
+			productReference = "Alchemy::Alchemy::Product" /* Alchemy.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		82573C201BDAA62700549861 /* AlchemyTests */ = {
+		"Alchemy::AlchemyTests" /* AlchemyTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82573C2E1BDAA62700549861 /* Build configuration list for PBXNativeTarget "AlchemyTests" */;
+			buildConfigurationList = OBJ_42 /* Build configuration list for PBXNativeTarget "AlchemyTests" */;
 			buildPhases = (
-				82573C1D1BDAA62700549861 /* Sources */,
-				82573C1E1BDAA62700549861 /* Frameworks */,
-				82573C1F1BDAA62700549861 /* Resources */,
+				OBJ_45 /* Sources */,
+				OBJ_48 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				82573C4F1BDB2F3E00549861 /* PBXTargetDependency */,
-				82573C241BDAA62700549861 /* PBXTargetDependency */,
+				OBJ_50 /* PBXTargetDependency */,
 			);
 			name = AlchemyTests;
 			productName = AlchemyTests;
-			productReference = 82573C211BDAA62700549861 /* AlchemyTests.xctest */;
+			productReference = "Alchemy::AlchemyTests::Product" /* AlchemyTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		82AA05991D7CDDB000DD3037 /* Alchemy-watchOS */ = {
+		"Alchemy::SwiftPMPackageDescription" /* AlchemyPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 82AA05A41D7CDDB000DD3037 /* Build configuration list for PBXNativeTarget "Alchemy-watchOS" */;
+			buildConfigurationList = OBJ_31 /* Build configuration list for PBXNativeTarget "AlchemyPackageDescription" */;
 			buildPhases = (
-				82AA05951D7CDDB000DD3037 /* Sources */,
-				82AA05961D7CDDB000DD3037 /* Frameworks */,
-				82AA05971D7CDDB000DD3037 /* Headers */,
-				82AA05981D7CDDB000DD3037 /* Resources */,
+				OBJ_34 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "Alchemy-watchOS";
-			productName = "Alchemy-watchOS";
-			productReference = 82AA059A1D7CDDB000DD3037 /* Alchemy.framework */;
+			name = AlchemyPackageDescription;
+			productName = AlchemyPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		82573C0E1BDAA62700549861 /* Project object */ = {
+		OBJ_1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = TypeLift;
-				TargetAttributes = {
-					82373A141CD405DB00CBAF3C = {
-						CreatedOnToolsVersion = 7.3.1;
-					};
-					82373A1D1CD405DB00CBAF3C = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0830;
-					};
-					82373A301CD405F400CBAF3C = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
-					};
-					82373A391CD405F500CBAF3C = {
-						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0830;
-					};
-					82573C161BDAA62700549861 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
-					};
-					82573C201BDAA62700549861 = {
-						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0830;
-					};
-					82AA05991D7CDDB000DD3037 = {
-						CreatedOnToolsVersion = 8.0;
-						ProvisioningStyle = Automatic;
-					};
-				};
+				LastUpgradeCheck = 0930;
 			};
-			buildConfigurationList = 82573C111BDAA62700549861 /* Build configuration list for PBXProject "Alchemy" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "Alchemy" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 82573C0D1BDAA62700549861;
-			productRefGroup = 82573C181BDAA62700549861 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_17 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 82573C401BDB2F3100549861 /* Products */;
-					ProjectRef = 82573C3F1BDB2F3100549861 /* SwiftCheck.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				82573C161BDAA62700549861 /* Alchemy */,
-				82573C201BDAA62700549861 /* AlchemyTests */,
-				82373A141CD405DB00CBAF3C /* Alchemy-iOS */,
-				82373A1D1CD405DB00CBAF3C /* Alchemy-iOSTests */,
-				82373A301CD405F400CBAF3C /* Alchemy-tvOS */,
-				82373A391CD405F500CBAF3C /* Alchemy-tvOSTests */,
-				82AA05991D7CDDB000DD3037 /* Alchemy-watchOS */,
+				"Alchemy::Alchemy" /* Alchemy */,
+				"Alchemy::SwiftPMPackageDescription" /* AlchemyPackageDescription */,
+				"Alchemy::AlchemyPackageTests::ProductTarget" /* AlchemyPackageTests */,
+				"Alchemy::AlchemyTests" /* AlchemyTests */,
 			);
 		};
 /* End PBXProject section */
 
-/* Begin PBXReferenceProxy section */
-		82373A0D1CD33A6400CBAF3C /* SwiftCheck.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftCheck.framework;
-			remoteRef = 82373A0C1CD33A6400CBAF3C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82373A0F1CD33A6400CBAF3C /* SwiftCheck-tvOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftCheck-tvOSTests.xctest";
-			remoteRef = 82373A0E1CD33A6400CBAF3C /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82573C471BDB2F3100549861 /* SwiftCheck.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftCheck.framework;
-			remoteRef = 82573C461BDB2F3100549861 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82573C491BDB2F3100549861 /* SwiftCheckTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = SwiftCheckTests.xctest;
-			remoteRef = 82573C481BDB2F3100549861 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82573C4B1BDB2F3100549861 /* SwiftCheck.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = SwiftCheck.framework;
-			remoteRef = 82573C4A1BDB2F3100549861 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		82573C4D1BDB2F3100549861 /* SwiftCheck-iOSTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = "SwiftCheck-iOSTests.xctest";
-			remoteRef = 82573C4C1BDB2F3100549861 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
-
-/* Begin PBXResourcesBuildPhase section */
-		82373A131CD405DB00CBAF3C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A1C1CD405DB00CBAF3C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A2F1CD405F400CBAF3C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A381CD405F500CBAF3C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C151BDAA62700549861 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C1F1BDAA62700549861 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82AA05981D7CDDB000DD3037 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		82373A101CD405DB00CBAF3C /* Sources */ = {
+		OBJ_24 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				82373A751CD406BF00CBAF3C /* Put.swift in Sources */,
-				82373A6C1CD406BF00CBAF3C /* Builder.swift in Sources */,
-				82373A6F1CD406BF00CBAF3C /* Get.swift in Sources */,
-				82373A781CD406BF00CBAF3C /* Serialize.swift in Sources */,
+				OBJ_25 /* Builder.swift in Sources */,
+				OBJ_26 /* Get.swift in Sources */,
+				OBJ_27 /* Put.swift in Sources */,
+				OBJ_28 /* Serialize.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82373A1A1CD405DB00CBAF3C /* Sources */ = {
+		OBJ_34 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				82A4106A1E4D09BC0008F806 /* FileSpec.swift in Sources */,
-				82A410671E4D09BC0008F806 /* AlchemySpec.swift in Sources */,
+				OBJ_35 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		82373A2C1CD405F400CBAF3C /* Sources */ = {
+		OBJ_45 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 0;
 			files = (
-				82373A761CD406BF00CBAF3C /* Put.swift in Sources */,
-				82373A6D1CD406BF00CBAF3C /* Builder.swift in Sources */,
-				82373A701CD406BF00CBAF3C /* Get.swift in Sources */,
-				82373A791CD406BF00CBAF3C /* Serialize.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82373A361CD405F500CBAF3C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82A4106B1E4D09BC0008F806 /* FileSpec.swift in Sources */,
-				82A410681E4D09BC0008F806 /* AlchemySpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C121BDAA62700549861 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82373A741CD406BF00CBAF3C /* Put.swift in Sources */,
-				82373A6B1CD406BF00CBAF3C /* Builder.swift in Sources */,
-				82373A6E1CD406BF00CBAF3C /* Get.swift in Sources */,
-				82373A771CD406BF00CBAF3C /* Serialize.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82573C1D1BDAA62700549861 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82A410691E4D09BC0008F806 /* FileSpec.swift in Sources */,
-				82A410661E4D09BC0008F806 /* AlchemySpec.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		82AA05951D7CDDB000DD3037 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				82AA05A71D7CDDD200DD3037 /* Builder.swift in Sources */,
-				82AA05A81D7CDDD200DD3037 /* Get.swift in Sources */,
-				82AA05A91D7CDDD200DD3037 /* Put.swift in Sources */,
-				82AA05AA1D7CDDD200DD3037 /* Serialize.swift in Sources */,
+				OBJ_46 /* AlchemySpec.swift in Sources */,
+				OBJ_47 /* FileSpec.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		82373A211CD405DB00CBAF3C /* PBXTargetDependency */ = {
+		OBJ_40 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 82373A141CD405DB00CBAF3C /* Alchemy-iOS */;
-			targetProxy = 82373A201CD405DB00CBAF3C /* PBXContainerItemProxy */;
+			target = "Alchemy::AlchemyTests" /* AlchemyTests */;
+			targetProxy = 82D36A96207F0A1A003F1092 /* PBXContainerItemProxy */;
 		};
-		82373A3D1CD405F500CBAF3C /* PBXTargetDependency */ = {
+		OBJ_50 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 82373A301CD405F400CBAF3C /* Alchemy-tvOS */;
-			targetProxy = 82373A3C1CD405F500CBAF3C /* PBXContainerItemProxy */;
-		};
-		82373A7B1CD4072800CBAF3C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SwiftCheck-iOS";
-			targetProxy = 82373A7A1CD4072800CBAF3C /* PBXContainerItemProxy */;
-		};
-		82373A7F1CD4073200CBAF3C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = "SwiftCheck-tvOS";
-			targetProxy = 82373A7E1CD4073200CBAF3C /* PBXContainerItemProxy */;
-		};
-		82573C241BDAA62700549861 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 82573C161BDAA62700549861 /* Alchemy */;
-			targetProxy = 82573C231BDAA62700549861 /* PBXContainerItemProxy */;
-		};
-		82573C4F1BDB2F3E00549861 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = SwiftCheck;
-			targetProxy = 82573C4E1BDB2F3E00549861 /* PBXContainerItemProxy */;
+			target = "Alchemy::Alchemy" /* Alchemy */;
+			targetProxy = 82D36A95207F0A1A003F1092 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		82373A271CD405DB00CBAF3C /* Debug */ = {
+		OBJ_22 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-iOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = iphoneos;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Alchemy.xcodeproj/Alchemy_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Alchemy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Alchemy;
 			};
 			name = Debug;
 		};
-		82373A281CD405DB00CBAF3C /* Release */ = {
+		OBJ_23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-iOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = iphoneos;
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Alchemy.xcodeproj/Alchemy_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = Alchemy;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = Alchemy;
 			};
 			name = Release;
 		};
-		82373A2A1CD405DB00CBAF3C /* Debug */ = {
+		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		82373A2B1CD405DB00CBAF3C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				INFOPLIST_FILE = Tests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SWIFT_VERSION = 3.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		82373A431CD405F500CBAF3C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-tvOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		82373A441CD405F500CBAF3C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-tvOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		82373A461CD405F500CBAF3C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-			};
-			name = Debug;
-		};
-		82373A471CD405F500CBAF3C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_ENABLE_MODULES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-tvOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				SWIFT_VERSION = 3.0;
-				TVOS_DEPLOYMENT_TARGET = 9.0;
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		82573C291BDAA62700549861 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				USE_HEADERMAP = NO;
 			};
 			name = Debug;
 		};
-		82573C2A1BDAA62700549861 /* Release */ = {
+		OBJ_32 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.13.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Release;
+		};
+		OBJ_38 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				MTL_ENABLE_DEBUG_INFO = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "-DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = SWIFT_PACKAGE;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
+				USE_HEADERMAP = NO;
 			};
 			name = Release;
 		};
-		82573C2C1BDAA62700549861 /* Debug */ = {
+		OBJ_43 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TypeLift.Alchemy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Alchemy.xcodeproj/AlchemyTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AlchemyTests;
 			};
 			name = Debug;
 		};
-		82573C2D1BDAA62700549861 /* Release */ = {
+		OBJ_44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TypeLift.Alchemy;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		82573C2F1BDAA62700549861 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TypeLift.AlchemyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		82573C301BDAA62700549861 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ENABLE_MODULES = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.TypeLift.AlchemyTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		82AA059F1D7CDDB000DD3037 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-watchOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
-			};
-			name = Debug;
-		};
-		82AA05A01D7CDDB000DD3037 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CODE_SIGN_IDENTITY = "";
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Sources/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.typelift.Alchemy-watchOS";
-				PRODUCT_NAME = Alchemy;
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				VALIDATE_PRODUCT = YES;
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = Alchemy.xcodeproj/AlchemyTests_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = AlchemyTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		82373A261CD405DB00CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-iOS" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "Alchemy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82373A271CD405DB00CBAF3C /* Debug */,
-				82373A281CD405DB00CBAF3C /* Release */,
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82373A291CD405DB00CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-iOSTests" */ = {
+		OBJ_21 /* Build configuration list for PBXNativeTarget "Alchemy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82373A2A1CD405DB00CBAF3C /* Debug */,
-				82373A2B1CD405DB00CBAF3C /* Release */,
+				OBJ_22 /* Debug */,
+				OBJ_23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82373A421CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOS" */ = {
+		OBJ_31 /* Build configuration list for PBXNativeTarget "AlchemyPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82373A431CD405F500CBAF3C /* Debug */,
-				82373A441CD405F500CBAF3C /* Release */,
+				OBJ_32 /* Debug */,
+				OBJ_33 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82373A451CD405F500CBAF3C /* Build configuration list for PBXNativeTarget "Alchemy-tvOSTests" */ = {
+		OBJ_37 /* Build configuration list for PBXAggregateTarget "AlchemyPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82373A461CD405F500CBAF3C /* Debug */,
-				82373A471CD405F500CBAF3C /* Release */,
+				OBJ_38 /* Debug */,
+				OBJ_39 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		82573C111BDAA62700549861 /* Build configuration list for PBXProject "Alchemy" */ = {
+		OBJ_42 /* Build configuration list for PBXNativeTarget "AlchemyTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				82573C291BDAA62700549861 /* Debug */,
-				82573C2A1BDAA62700549861 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		82573C2B1BDAA62700549861 /* Build configuration list for PBXNativeTarget "Alchemy" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				82573C2C1BDAA62700549861 /* Debug */,
-				82573C2D1BDAA62700549861 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		82573C2E1BDAA62700549861 /* Build configuration list for PBXNativeTarget "AlchemyTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				82573C2F1BDAA62700549861 /* Debug */,
-				82573C301BDAA62700549861 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		82AA05A41D7CDDB000DD3037 /* Build configuration list for PBXNativeTarget "Alchemy-watchOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				82AA059F1D7CDDB000DD3037 /* Debug */,
-				82AA05A01D7CDDB000DD3037 /* Release */,
+				OBJ_43 /* Debug */,
+				OBJ_44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 82573C0E1BDAA62700549861 /* Project object */;
+	rootObject = OBJ_1 /* Project object */;
 }

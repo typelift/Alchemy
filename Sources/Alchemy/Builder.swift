@@ -30,7 +30,7 @@ struct Buffer {
 		let n = f(self.buf.advanced(by: self.offset + self.used))
 		return Buffer(buf: self.buf, offset: self.offset, used: (self.used + n), left: self.left - n)
 	}
-	
+
 	fileprivate static let defaultSize = 32 * (1024) - (2 * MemoryLayout<Int>.size)
 }
 
@@ -40,7 +40,7 @@ struct Builder {
 	var forceByteString : ByteString {
 		let buf = Buffer(size: Buffer.defaultSize)
 		let s = self.append(Builder.flush()).runBuilder({ _ in [] }, buf)
-		buf.buf.deallocate(capacity: buf.used + buf.left)
+		buf.buf.deallocate()
 		return s
 	}
 
@@ -109,7 +109,7 @@ struct Builder {
 //			buf[3] = UInt8(truncatingBitPattern: w >> 24)
 //		}
 //	}
-//	
+//
 //	static func putWord64le(w : UInt64) -> Builder {
 //		return writeN(8) { buf in
 //			buf[0] = UInt8(truncatingBitPattern: w)

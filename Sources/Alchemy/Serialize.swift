@@ -47,7 +47,7 @@ extension Int8 : Serializable {
 	public static func deserialize<R>() -> Get<Int8, R> {
 		return Get.byReadingBytes(1) { uu in Int8(bitPattern: uu[0]) }
 	}
-	
+
 	public var serialize : Put {
 		return UInt8(bitPattern: self).serialize
 	}
@@ -60,7 +60,7 @@ extension Int16 : Serializable {
 				|  Int16(uu[1])
 		}
 	}
-	
+
 	public var serialize : Put {
 		return UInt16(bitPattern: self).serialize
 	}
@@ -75,7 +75,7 @@ extension Int32 : Serializable {
 				|  Int32(uu[3])
 		}
 	}
-	
+
 	public var serialize : Put {
 		return UInt32(bitPattern: self).serialize
 	}
@@ -94,21 +94,9 @@ extension Int64 : Serializable {
 				|  Int64(uu[7])
 		}
 	}
-	
+
 	public var serialize : Put {
 		return UInt64(bitPattern: self).serialize
-	}
-}
-
-extension Int : Serializable {
-	@available(*, unavailable, message: "Int is an architecturally-dependent type that should not be serialized")
-	public static func deserialize<R>() -> Get<Int, R> {
-		fatalError("Int is an architecturally-dependent type that should not be deserialized")
-	}
-
-	@available(*, unavailable, message: "Int is an architecturally-dependent type that should not be serialized")
-	public var serialize : Put {
-		fatalError("Int is an architecturally-dependent type that should not be p sserialized")
 	}
 }
 
@@ -134,8 +122,8 @@ extension UInt16 : Serializable {
 
 	public var serialize : Put {
 		return Put.byWritingBytes(2) { buf in
-			buf[0] = UInt8(truncatingBitPattern: self >> 8)
-			buf[1] = UInt8(truncatingBitPattern: self)
+			buf[0] = UInt8(truncatingIfNeeded: self >> 8)
+			buf[1] = UInt8(truncatingIfNeeded: self)
 		}
 	}
 }
@@ -152,10 +140,10 @@ extension UInt32 : Serializable {
 
 	public var serialize : Put {
 		return Put.byWritingBytes(4) { buf in
-			buf[0] = UInt8(truncatingBitPattern: self >> 24)
-			buf[1] = UInt8(truncatingBitPattern: self >> 16)
-			buf[2] = UInt8(truncatingBitPattern: self >> 8)
-			buf[3] = UInt8(truncatingBitPattern: self)
+			buf[0] = UInt8(truncatingIfNeeded: self >> 24)
+			buf[1] = UInt8(truncatingIfNeeded: self >> 16)
+			buf[2] = UInt8(truncatingIfNeeded: self >> 8)
+			buf[3] = UInt8(truncatingIfNeeded: self)
 		}
 	}
 }
@@ -173,30 +161,18 @@ extension UInt64 : Serializable {
 				|  UInt64(uu[7])
 		}
 	}
-	
+
 	public var serialize : Put {
 		return Put.byWritingBytes(8) { buf in
-			buf[0] = UInt8(truncatingBitPattern: self >> 56)
-			buf[1] = UInt8(truncatingBitPattern: self >> 48)
-			buf[2] = UInt8(truncatingBitPattern: self >> 40)
-			buf[3] = UInt8(truncatingBitPattern: self >> 32)
-			buf[4] = UInt8(truncatingBitPattern: self >> 24)
-			buf[5] = UInt8(truncatingBitPattern: self >> 16)
-			buf[6] = UInt8(truncatingBitPattern: self >> 8)
-			buf[7] = UInt8(truncatingBitPattern: self)
+			buf[0] = UInt8(truncatingIfNeeded: self >> 56)
+			buf[1] = UInt8(truncatingIfNeeded: self >> 48)
+			buf[2] = UInt8(truncatingIfNeeded: self >> 40)
+			buf[3] = UInt8(truncatingIfNeeded: self >> 32)
+			buf[4] = UInt8(truncatingIfNeeded: self >> 24)
+			buf[5] = UInt8(truncatingIfNeeded: self >> 16)
+			buf[6] = UInt8(truncatingIfNeeded: self >> 8)
+			buf[7] = UInt8(truncatingIfNeeded: self)
 		}
-	}
-}
-
-extension UInt : Serializable {
-	@available(*, unavailable, message: "UInt is an architecturally-dependent type that should not be serialized")
-	public static func deserialize<R>() -> Get<UInt, R> {
-		fatalError("UInt is an architecturally-dependent type that should not be deserialized")
-	}
-
-	@available(*, unavailable, message: "UInt is an architecturally-dependent type that should not be serialized")
-	public var serialize : Put {
-		fatalError("UInt is an architecturally-dependent type that should not be serialized")
 	}
 }
 
@@ -204,7 +180,7 @@ extension Float : Serializable {
 	public static func deserialize<R>() -> Get<Float, R> {
 		return UInt32.deserialize().map(Float.init(bitPattern:))
 	}
-	
+
 	public var serialize : Put {
 		return self.bitPattern.serialize
 	}
@@ -214,7 +190,7 @@ extension Double : Serializable {
 	public static func deserialize<R>() -> Get<Double, R> {
 		return UInt64.deserialize().map(Double.init(bitPattern:))
 	}
-	
+
 	public var serialize : Put {
 		return self.bitPattern.serialize
 	}
@@ -228,10 +204,10 @@ extension String : Serializable {
 					return ""
 				}
 				return String(validatingUTF8: s.map { Int8(bitPattern: $0) }) ?? ""
-			} 
+			}
 		}
 	}
-	
+
 	public var serialize : Put {
 		return Int64(self.utf8.count).serialize
 			.putByteString(self.utf8CString.map { UInt8(bitPattern: $0) })

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0930"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82573C161BDAA62700549861"
+               BlueprintIdentifier = "Alchemy::Alchemy"
                BuildableName = "Alchemy.framework"
                BlueprintName = "Alchemy"
                ReferencedContainer = "container:Alchemy.xcodeproj">
@@ -32,7 +32,7 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82573C201BDAA62700549861"
+               BlueprintIdentifier = "Alchemy::AlchemyTests"
                BuildableName = "AlchemyTests.xctest"
                BlueprintName = "AlchemyTests"
                ReferencedContainer = "container:Alchemy.xcodeproj">
@@ -42,7 +42,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82573C161BDAA62700549861"
+            BlueprintIdentifier = "Alchemy::Alchemy"
             BuildableName = "Alchemy.framework"
             BlueprintName = "Alchemy"
             ReferencedContainer = "container:Alchemy.xcodeproj">
@@ -64,7 +64,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82573C161BDAA62700549861"
+            BlueprintIdentifier = "Alchemy::Alchemy"
             BuildableName = "Alchemy.framework"
             BlueprintName = "Alchemy"
             ReferencedContainer = "container:Alchemy.xcodeproj">
@@ -82,7 +82,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "82573C161BDAA62700549861"
+            BlueprintIdentifier = "Alchemy::Alchemy"
             BuildableName = "Alchemy.framework"
             BlueprintName = "Alchemy"
             ReferencedContainer = "container:Alchemy.xcodeproj">

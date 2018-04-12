@@ -5,50 +5,15 @@ matrix:
   include:
     - os: osx
       language: objective-c
-      osx_image: xcode8.2
-      before_install:
-        - git submodule update --init --recursive
+      osx_image: xcode9.3
       script:
-      # Restore pod build before shipping for 3.0
-      # - pod lib lint
-        - carthage build --no-skip-current
-    - os: osx
-      language: objective-c
-      osx_image: xcode8.2
-      before_install:
-        - git submodule update --init --recursive
-      script:
-        - set -o pipefail
-        - xcodebuild test -scheme Alchemy | xcpretty -c
-        # -- Start iOS --
-        # !!!: Make sure desired device name & OS version are suitable for the Xcode version installed on osx_image
-        - iOS_DEVICE_NAME="iPad Pro (12.9 inch)"
-        - iOS_RUNTIME_VERSION="10.0"
-        # Get simulator identifier for desired device/runtime pair
-        - SIMULATOR_ID=$(xcrun instruments -s | grep -o "${iOS_DEVICE_NAME} (${iOS_RUNTIME_VERSION}) \[.*\]" | grep -o "\[.*\]" | sed "s/^\[\(.*\)\]$/\1/")
-        - echo $SIMULATOR_ID
-        - echo $iOS_DEVICE_NAME
-        - echo $iOS_RUNTIME_VERSION
-        - xcodebuild build-for-testing -scheme Alchemy-iOS -destination "platform=iOS Simulator,name=${iOS_DEVICE_NAME},OS=${iOS_RUNTIME_VERSION}" | xcpretty -c
-        - xcodebuild test -scheme Alchemy-iOS -destination "platform=iOS Simulator,name=${iOS_DEVICE_NAME},OS=${iOS_RUNTIME_VERSION}" | xcpretty -c
-        - xcodebuild build-for-testing -scheme Alchemy-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty -c
-        - xcodebuild test -scheme Alchemy-tvOS -destination 'platform=tvOS Simulator,name=Apple TV 1080p' | xcpretty -c
+        - swift test
     - os: linux
       language: generic
       sudo: required
       dist: trusty
-      before_install:
-        - git submodule update --init --recursive
-        - wget -q -O - https://swift.org/keys/all-keys.asc | gpg --import -
-        - wget https://swift.org/builds/swift-3.0.2-release/ubuntu1404/swift-3.0.2-RELEASE/swift-3.0.2-RELEASE-ubuntu14.04.tar.gz
-        - tar xzf swift-3.0.2-RELEASE-ubuntu14.04.tar.gz
-        - export PATH=${PWD}/swift-3.0.2-RELEASE-ubuntu14.04/usr/bin:"${PATH}"
+      install:
+        - eval "$(curl -sL https://swiftenv.fuller.li/install.sh)"
       script:
-        - swift build
-notifications:
-  webhooks:
-    urls:
-      - https://webhooks.gitter.im/e/1d781e1bcbabade5de35
-    on_success: always
-    on_failure: always
-    on_start: always
+        - swift test
+
